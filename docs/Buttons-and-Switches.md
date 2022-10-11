@@ -1,4 +1,4 @@
-﻿!!! info "Buttons and switches: why the difference and how to configure them"
+!!! info "Buttons and switches: why the difference and how to configure them"
 
 A typical device usually has at least one button (exception being bulbs and some lights) to control the power state(s). Additional buttons and switches can be [wired](Expanding-Tasmota#connect-switch) to a free GPIO and configured in Module or Template settings.
 
@@ -230,7 +230,7 @@ Multipress functions for 2 and more presses cannot be changed using SetOptions o
     !!! note "If [ButtonRetain](Commands.md#buttonretain) has been enabled the MQTT message will also contain the MQTT retain flag."
 
     !!! danger
-        When a button is configured as inverted or with a [Switchmode](Commands.md#switchmode) that keeps it as ON while depressed it activates the reset to firmware defaults function. Change the Button configuration or SwitchMode to avoid repeated reset to defaults or use `Setoption1 1` to disable that function.
+        If a button is configured as inverted (or open-on-push hardware is used), such that it is permanently ON when not pressed, it will cause a full firmware reset. Change the button configuration accordingly to avoid this or use `Setoption1 1` to disable the reset on long press.
 
     !!! warning
         If you define a button with a number higher than available power outputs it will default to controlling `Power1`. Example: Button4 on a device with Power1 and Power2 will control `Power1`.
